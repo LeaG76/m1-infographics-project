@@ -26,7 +26,9 @@ Processing installs on all systems where Java can run. You can install it from t
 
 ## About
 
-This project consists of reproducing my classroom A106 of the UFR Sciences et Techniques of the University of Le Havre Normandie in which I studied during my first year of a computer science master's degree.
+This project consists of reproducing the A106 classroom of the UFR Sciences et Techniques of the University of Le Havre Normandie in which I studied during my first year of a computer science master's degree.
+
+A camera will be placed in the scene and we can move around in it.
 
 ## Code overview
 
