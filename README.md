@@ -10,5 +10,5 @@
 </p>
 
 <p align="center">
-  <img alt="Last commit" src="preview.png" width="1000px" />
+  <img alt="Last commit" src="result.png" width="1000px" />
 </p>
