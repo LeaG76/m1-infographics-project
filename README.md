@@ -17,3 +17,17 @@
 <p align="center">
   <img alt="Preview" src="preview.png" width="1000px" />
 </p>
+
+### Prerequisites
+
+We will use the Processing environment and programming language. Processing is an environment dedicated to graphic programming, artistic creation and everything related to the visual arts. It is both a basic development environment and a programming language. The latter is based on the Java language with some extensions.
+
+Processing installs on all systems where Java can run. You can install it from the site [Processing](https://processing.org/). 
+
+### About
+
+### Code overview
+
+### Preview of the result
+
+### User guide
