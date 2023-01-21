@@ -1,20 +1,19 @@
-/**********************************************************
- * Fichier de la classe Camera, elle va nous permettre de *
- * gérer la caméra, nous permettre de nous déplacer dans  *
- * l'espace avec les flèches du clavier mais également de *
- * bouger la position (la vue des yeux) de la caméra en   *
- * fonction des mouvements de la souris                   *
- **********************************************************/
+/*
+  ┌───────────────────────────────────────────────────────────────────────────────────────────┐
+  │   Camera class file, it will allow us to manage the camera, allow us to move in space     │
+  │ with the arrows of the keyboard but also to move the position (the sight of the eyes) of  │
+  │ the camera according to the movements of the mouse                                        │
+  └───────────────────────────────────────────────────────────────────────────────────────────┘
+*/
 
 class Camera {
-  // Vecteurs pour la position de la vue de la caméra, la position des yeux et pour les déplacements
+  // Vectors for the position of the camera view, the position of the eyes and for the displacements
   PVector vue, position, deplacement;
-  // Variables pour les mouvements de la caméra 
+  // Variables for camera movements
   float radius, theta, phi;
 
-  /* Constructeur sans argument qui va nous permettre de construire une
-    caméra par défaut avec la position de la vue de la caméra et la
-    position des yeux */
+  /* Constructor without arguments that will allow us to build a default camera
+    with the position of the camera view and the position of the eyes */
 
   Camera() {
     vue = new PVector(camX, camY, camZ);
@@ -26,8 +25,8 @@ class Camera {
     perspective(PI/2, (float) width / height, 0.1, 10000);
   }
 
-  /* Fonction qui va nous permettre de mettre à jour la caméra
-    (donc les coordonnées pour la position de la vue et des yeux) */
+  /* Function that will allow us to update the camera (therefore the coordinates
+    for the position of the view and the eyes) */
   
   void miseAJourCamera() {
     camera( 
@@ -36,9 +35,9 @@ class Camera {
       0, 1, 0);
   }
 
-  /* Fonction qui va nous permettre de bouger la caméra en fonction de la position de la souris.
-    Pour cela, on va mettre à jour des coordonnées de la position des yeux en fonction de la
-    position de la souris */
+  /* Function that will allow us to move the camera according to the position of
+    the mouse. For this, we will update the coordinates of the position of the
+    eyes according to the position of the mouse */
   
   void deplacementCamera() {
     position.set(radius * cos(phi) * cos(theta), -radius * sin(phi), radius * cos(phi) * sin(theta)).add(vue);
@@ -46,36 +45,37 @@ class Camera {
     phi = (float(mouseY)/width) * TWO_PI;
   }
 
-  /* Fonction qui nous permettre de nous déplacer dans l'espace de la salle A106 (et son extérieur) via les touches
-    (flèches ↑, ←, →, ↓) du clavier. Pour cela, on va vérifier si les touches sont pressées et plus particulièrement
-    les flèches du clavier. Si c'est telle ou telle flèche on va se déplacer différemment dans l'espace. Les vecteurs
-    sont mis à jour pour maintenir une distance correcte entre les objets observables et leur position */
+  /* Function that allows us to move around in the space of room A106 (and its exterior)
+    via the keys (arrows ↑, ←, →, ↓) on the keyboard. To do this, we will check if
+    the keys are pressed and more specifically the keyboard arrows. If it is such and
+    such an arrow, we will move differently in space. Vectors are updated to maintain
+    correct distance between observable objects and their position */
     
   void deplacementEspace() {
     int distance = 0;
-    // Si les touches sont pressées alors ...
+    // If the keys are pressed then...
     if (keyPressed) {
       if (key == CODED) {
-        // Et si c'est la flèche du haut, on se déplace vers l'avant de la salle A106
+        // And if it's the up arrow, we move to the front of room A106
         if (keyCode == UP) {
           deplacement = new PVector(position.x - vue.x, position.y - vue.y, position.z - vue.z).normalize();
           distance = 2;
         } else
-        // Et si c'est la flèche de gauche, on se déplace vers la gauche de la salle A106
+        // And if it's the left arrow, we move to the left of room A106
         if (keyCode == LEFT) {
           deplacement = new PVector(position.x - vue.x, position.y - vue.y, position.z - vue.z).normalize();
           PVector i = new PVector(0, 1, 0);
           deplacement.set(deplacement.copy().cross(i));
           distance = -2;
         } else
-        // Et si c'est la flèche de droite, on se déplace vers la droite de la salle A106
+        // And if it's the right arrow, we move to the right of room A106
         if (keyCode == RIGHT) {
           deplacement = new PVector(position.x - vue.x, position.y - vue.y, position.z - vue.z).normalize();
           PVector i = new PVector(0, 1, 0);
           deplacement.set(deplacement.copy().cross(i));
           distance = 2;
         } else
-        // Et si c'est la flèche du bas, on se déplace vers l'arrière de la salle A106
+        // And if it's the down arrow, we move to the back of room A106
         if (keyCode == DOWN) {
           deplacement = new PVector(position.x - vue.x, position.y - vue.y, position.z - vue.z).normalize();
           distance = -2;
