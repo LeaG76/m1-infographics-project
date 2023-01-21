@@ -18,17 +18,17 @@
   <img alt="Preview" src="preview.png" width="1000px" />
 </p>
 
-## Prerequisites
-
-We will use the environment and programming language named Processing. Processing is an environment dedicated to graphic programming, artistic creation and everything related to the visual arts. It is both a basic development environment and a programming language. The latter is based on the Java language with some extensions.
-
-Processing installs on all systems where Java can run. You can install it from the site [Processing](https://processing.org/).
-
 ## About
 
 This project consists of reproducing the A106 classroom of the UFR Sciences et Techniques of the University of Le Havre Normandie in which I studied during my first year of a computer science master's degree.
 
 A camera will be placed in the scene and we can move around in it.
+
+## Prerequisites
+
+We will use the environment and programming language named Processing. Processing is an environment dedicated to graphic programming, artistic creation and everything related to the visual arts. It is both a basic development environment and a programming language. The latter is based on the Java language with some extensions.
+
+Processing installs on all systems where Java can run. You can install it from the site [Processing](https://processing.org/).
 
 ## Code overview
 

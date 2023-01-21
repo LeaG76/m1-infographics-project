@@ -1,20 +1,27 @@
-/**************************************************************************
- * Ce fichier est le fichier de la classe principale de notre programme   *
- * Dans ce fichier, nous allons créer le dessin de la salle A106, créer   *
- * toutes les instances des différentes classes qui vont nous permettrent *
- * de créer tous les objets que composent la salle. Nous allons également *
- * de ce fichier, créer toutes les variables pour les shaders, les        *
- * textures et bien évidemment les dimensions des objets (la salle, les   *
- * ordinateurs, bureaux, chaises, ...). De plus, nous allons créer les    *
- * variables pour la caméra, pour les lights et d'autres variables commme *
- * des polices de caractère ou même une variable boolean pour gérer les    *
- * lumières de la salle.                                                  *
- **************************************************************************/
+/*
+  ┌───────────────────────────────────────────────────────────────────────────────────────────┐
+  │ @name         Classroom scene reproduction                                                │
+  │ @author       Léa Gallier                                                                 │
+  │ @version      1.0                                                                         │
+  │ @created      2022-05-24                                                                  │
+  │ @modified     2023-01-19                                                                  │
+  │ @description  Reproduction of a classroom at the University of Le Havre Normandy in the   │
+  │               form of a scene                                                             │
+  │                                                                                           │
+  │   This file is the main class file of our program.                                        │
+  │ In this file, we will create the drawing of room A106, create all the instances of the    │
+  │ different classes that will allow us to create all the objects that make up the room. We  │
+  │ will also from this file, create all the variables for the shaders, the textures and of   │
+  │ course the dimensions of the objects (the room, the computers, desks, chairs, ...). In    │
+  │ addition, we will create the variables for the camera, for the lights and other variables │
+  │ like fonts or even a boolean variable to manage the lights of the room.                   │
+  └───────────────────────────────────────────────────────────────────────────────────────────┘
+*/
 
-// Dessin (Shape) principal de la salle A106
+// Main drawing (Shape) of room A106
 PShape a106;
 
-// Instances des classes
+// Class instances
 Camera camera;
 Salle salle;
 Porte porte;
@@ -33,50 +40,50 @@ Rideau rideau;
 Details details;
 Led led;
 
-// Variable pour les shaders
+// Variables for shaders
 PShader shader;
 
-// Variables pour les textures
+// Variables for textures
 PImage texSol, texMur, texMurBrique, texMurCouloir, texPlafond, texAfficheVerso, texAfficheRecto, texNomSalle, texTableau, texBureau;
 PImage texBureauProf, texChaise, texChaiseBarre, texTour, texClavier, texSouris, texEcran1, texEcran2, texEcran3, texEcran4, texEcran5;
 PImage texEcran6, texEcran7, texEcran8, texEcran9, texEcran10, texEcran11, texEcranTactile, texAfficheTableau, texLogoDell, texLogoSpeechi;
 PImage texAlimentation, texEnceinte, texFenetre1, texFenetre2, texRadiateur, texRideau, texLedSalle, texLedSalleAllume, texLedTab;
 PImage texTampon, texAfficheCouloir1, texAfficheCouloir2, texInterrupteur, texPrise;
 
-// L'échelle : 1cm = 1px
+// The scale : 1cm = 1px
 
-// Variables pour la construction de la salle
-// Dimension de la salle
+// Variables for building the room
+// Room size
 final float salleL = 620/2, salleH = 280/2, salleP = 980/2;
-// Epaisseur des murs de la salle
+// Room wall thickness
 final int epaisseur = 5;
-// Dimension des plinthes
+// Dimensions of skirting blackboards
 final float plintheH = 10, plintheP = 1;
 
-// Variables pour la construction des portes
-// Dimension d'une porte
+// Variables for building doors
+// Size of a door
 final float porteL = 92, porteHVert = 189, porteHGris = 16, porteP = 2;
-// Dimension d'un contour de porte
+// Dimension of a door outline
 final float contourEpaisseur = 3, contourH = 208, contourP = 3;
 final float cylindrePorteH = 1, cylindrePorteR = 2.5;
 final float cylindrePoignee1H = 4.5, cylindrePoignee1R = 1;
 final float cylindrePoignee2H = 12.5, cylindrePoignee2R = 1;
 
-// Variables pour la construction du tableau
-// Dimension du tableau
+// Variables for the construction of the blackboard
+// Blackboard size
 final float tableauL = 400, tableauH = 126, tableauP = 1.5;
-// Dimension de la tablette verticale
+// Vertical shelf dimension
 final float tablette1L = 402, tablette1H = 3.5, tablette1P = 1;
-// Dimension de la tablette horizontale
+// Horizontal shelf dimension
 final float tablette2L = 402, tablette2H = 1, tablette2P = 7;
 
-// Dimension d'un bureau
+// Size of a desk
 final float plateauL = 160, plateauH = 2, plateauP = 80;
 final float piedH = 73, piedR = 2.5;
 final float bordure1L = 148, bordure1H = 5, bordure1P = 2;
 final float bordure2L = 2, bordure2H = 5, bordure2P = 68;
 
-// Dimension du bureau du prof
+// Dimensions of the teacher's desk
 final float plateauPL = 130, plateauPH = 2, plateauPP = 65;
 final float piedPH = 70, piedPR = 1.5;
 final float bordureP1L = 120, bordureP1H = 4, bordureP1P = 2.5;
@@ -84,77 +91,77 @@ final float bordureP2L = 2.5, bordureP2H = 4, bordureP2P = 54;
 final float planche1L = 120, planche1H = 30, planche1P = 2.5;
 final float planche2L = 2.5, planche2H = 30, planche2P = 54;
 
-// Dimension d'une chaise
+// Dimensions of a chair
 final float assiseL = 40, assiseH = 2, assiseP = 35;
 final float dossierL = 40, dossierH = 43, dossierP = 2;
 final float piedChaiseH = 43, piedChaiseSupportH = 44, piedChaiseR = 1.5;
 
-// Données sur le nombre de bureau et de rangée (pour le placement des bureaux et des chaises), ainsi que le nombre de leds
+// Desk and row number data (for placement of desks and chairs), as well as the number of leds
 final int nb_bureau = 3, nb_rangee = 4, nb_leds = 4;
 
-// Dimension d'une tour d'ordinateur
+// Dimensions of a computer tower
 final float tourL = 9.5, tourH = 29, tourP = 29;
 
-// Dimension d'un clavier d'ordinateur
+// Dimensions of a computer keyblackboard
 final float clavierL = 44, clavierH = 1.5, clavierP = 12.5;
 
-// Dimension d'une souris d'ordinateur
+// Dimensions of a computer mouse
 final float sourisL = 6, sourisH = 2, sourisP = 8;
 
-// Dimension d'un écran d'ordinateur
+// Dimensions of a computer screen
 final float ecranL = 54, ecranH = 32, ecranP = 2;
 final float supportL = 20, supportH = 2, supportP = 16.5;
 final float piedEH = 34, piedER = 2;
 
-// Dimension de l'écran tactile
+// Touch screen size
 final float ecranTL = 170, ecranTH = 98, ecranTP = 9;
 final float supportETL = 90, supportETH = 15, supportETP = 60;
 final float piedETL = 20, piedETH = 140, piedETP = 15;
 
-// Dimension d'une enceinte
+// Dimensions of a speaker
 final float enceinteL = 15, enceinteH = 22, enceinteP = 13;
 
-// Dimension du rideau projecteur
+// Dimensions of the projector curtain
 final float rideauPR = 4, rideauPH = 225;
 
-// Dimension des fenetres
+// Window size
 final float fenetre1L = 221.75, fenetre2L = 665.25, fenetreH = 170, fenetreP = 1;
 
-// Dimension d'un radiateur
+// Dimensions of a radiator
 final float radiateurL = 180, radiateurH = 60, radiateurP = 10;
 
-// Dimension de la poubelle
+// Dimensions of the trash can
 final float poubelleR = 15, poubelleH = 30;
 
-// Dimension du projecteur
+// Projector size
 final float projecteurL = 30, projecteurH = 10, projecteurP = 30;
 final float piedProjecteurR = 2.5, piedProjecteurH = 10;
 
-// Dimension des leds de la salle
+// Dimension of the room leds
 final float ledSalleL = 20, ledSalleH = 1, ledSalleP = 120;
 
-// Dimension des leds du tableau
+// Dimension of the leds of the blackboard
 final float ledTabL = 10, ledTabH = 5, ledTabP = 120;
 
-// Dimension du tampon du tableau
+// Dimension of the blackboard buffer
 final float tamponL = 10, tamponH = 1.5, tamponP = 3;
 
-// Dimension des interrupteurs/prises électriques
+// Size of switches and electrical outlets
 final float blocElecL = 8.5, blocElecH = 7, blocElecP = 1;
 
-// Variable pour la création d'une caméra
-// Position x, y et z de la caméra de base
+// Variables for creating a camera
+// Base camera x, y and z position
 float camX = salleL-salleL/2;
 float camY = -salleH/2;
 float camZ = salleP-salleP/4;
 
-// Variables pour les positions des lights
+// Variables for light positions
 PVector[] lightPos = {
-  // Lumières du plafond
+  // Ceiling lights
   new PVector(10*salleL,-salleH,10*salleP),
   new PVector(10*salleL,-salleH,-10*salleP),
   
-  // Lumière des fenêtres
+  // Light from windows
   new PVector(-salleL,-20*salleH,0),
   
   new PVector(10*salleL,salleH,10*salleP),
@@ -163,40 +170,45 @@ PVector[] lightPos = {
   new PVector(-10*salleL,0,0)
 };
 
-// Variables pour les couleurs des lights
+// Variables for light colors
 PVector[] lightColor = {
   new PVector(100,100,100)
 };
 
-// Polices de caractère pour le texte
+// Fonts for text
 PFont font1, font2;
 
-// Variable boolean pour l'éclairage de la salle A106 
+// Boolean variable for lighting in room A106
 boolean eclairage = false;
 
-/* Setup : Ici, nous allons définir les informations générales, comme la taille de la fenêtre (ici de taille 800)
-  le nom de la fenêtre ("Salle A106"), le chargement des shaders et des textures (pour les textures
-  cela va se faire via une fonction "textures"), le chargement des polices de caractère, l'initialisation
-  des instances des classes avec les constructeurs et enfin la création de la salle A106 par appel de la
-  fonction A106() */
+/*
+  ┌───────────────────────────────────────────────────────────────────────────────────────────┐
+  │   Setup                                                                                   │
+  │ Here we will define the general information, such as the size of the window (here size    │
+  │ 800), the name of the window ("Room A106"), the loading of shaders and textures (for      │
+  │ textures this will be done via a "textures" function), the loading of character fonts,    │
+  │ the initialization of class instances with constructors and finally the creation of room  │
+  │ A106 by calling function A106().                                                          │
+  └───────────────────────────────────────────────────────────────────────────────────────────┘
+*/
 
 void setup() {
-  // Taille de la fenêtre en 3 dimensions
+  // Window size in 3 dimensions
   size(800, 800, P3D);
   
-  // Application du titre "Salle A106" à la fenêtre
+  // Applying the title "A106 Room Simulator" to the window
   surface.setTitle("A106 Room Simulator");
   
-  // Chargement des shaders
+  // Loading shaders
   shader = loadShader("LightShaderTexFrag.glsl", "LightShaderTexVert.glsl");
-  // Appel de la fonction qui charge et génère toutes les textures
+  // Call of the function which loads and generates all the textures
   textures();
 
-  // Chargement des polices de caractère
+  // Loading fonts
   font1 = loadFont("Roboto-Black-50.vlw");
   font2 = loadFont("Karumbi-Regular-50.vlw");
 
-  // Initialisation des instances avec les constructeurs
+  // Initializing instances with constructors
   camera = new Camera();
   salle = new Salle(epaisseur);
   porte = new Porte();
@@ -215,37 +227,43 @@ void setup() {
   details = new Details();
   led = new Led();
 
-  // Appel de la méthode A106() afin de créer la salle A106
+  // Call of method A106() to create room A106
   a106 = A106();
 }
 
-/* Draw : */
+/*
+  ┌───────────────────────────────────────────────────────────────────────────────────────────┐
+  │   Draw                                                                                    │
+  │ This function continuously executes the lines of code contained in its block until the    │
+  │ program stops.                                                                            │
+  └───────────────────────────────────────────────────────────────────────────────────────────┘
+*/
 
 void draw() {
-  // Couleur de fond (noir)
+  // Background color (black)
   background(0);
   
-  // Pour éclairer la pièce ou non en fonction de la variable boolean
+  // To light the room or not depending on the boolean variable
   if(eclairage==true) {
     lights();
   }
   
-  // On dessine la salle
+  // We draw the room
   shape(a106);
   resetShader();
 
-  // On affiche les textes dans le dessin de la salle A106
+  // We display the texts in the drawing of room A106
   texts();
 
-  // Déplacement dans l'espace
+  // Movement in space
   camera.deplacementEspace();
-  // Mouvement de la caméra
+  // Camera movement
   camera.deplacementCamera();
-  // Mise à jour de la caméra
+  // Camera update
   camera.miseAJourCamera();
 }
 
-/* Fonction dans laquelle on génère toutes les textures que l'on va utiliser dans les différentes classes */
+/* Function in which we generate all the textures that we will use in the different classes */
 
 void textures() {
   texSol = loadImage("../pictures/sol.jpg");
@@ -294,10 +312,10 @@ void textures() {
   texPrise = loadImage("../pictures/prise.jpg");
 }
 
-/* Fonction dans laquelle on affiche tous les textes de la salle A106 */
+/* Function in which all the texts of room A106 are displayed */
 
 void texts() {
-  // On affiche le texte du nom de la salle sur la porte d'entrée
+  // We display the text of the name of the room on the entrance door
   pushMatrix();
   textFont(font1);
   translate(salleL+epaisseur+porteP+0.1, -37, -salleP+27+contourEpaisseur+porteL-14.5);
@@ -307,7 +325,7 @@ void texts() {
   text("A106", 0, 0, 0);
   popMatrix();
   
-  // On affiche le texte de bienvenue sur le tableau
+  // We display the welcome text on the board
   pushMatrix();
   textFont(font2);
   translate(-salleL+135+tableauL/2, -40, -salleP+2);
@@ -317,7 +335,7 @@ void texts() {
   text("Bienvenue dans la salle A106 !\nSalle des M1 IWOCS", 0, 0, 0);
   popMatrix();
  
-  // On affiche le texte explicatif sur le tableau
+  // The explanatory text is displayed on the board
   pushMatrix();
   textFont(font2);
   translate(-salleL+135+tableauL/2, 20, -salleP+2);
@@ -328,7 +346,7 @@ void texts() {
   popMatrix();
 }
 
-/* Fonction qui va nous permettre de gérer les lumières de la salle A106 */
+/* Function that will allow us to manage the lights of room A106 */
 
 void lights() {
   for (int i=0; i<lightPos.length; i++) {
@@ -348,7 +366,7 @@ void lights() {
   shader(shader);
 }
 
-/* Fonction qui va nous permettre d'allumer ou éteindre les lumières lorsque l'on touche sur la touche espace */
+/* Function that will allow us to turn the lights on or off when we press the space key */
 
 void keyPressed() {
   if (key == ' ') {
@@ -356,7 +374,7 @@ void keyPressed() {
   }
 }
 
-/* Fonction qui renvoie le dessin de la salle en appelant les autres classes de construction d'objets */
+/* Function that returns the drawing of the room by calling the other object construction classes */
 
 PShape A106() {
   a106 = createShape(GROUP);
