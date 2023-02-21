@@ -1,6 +1,6 @@
 <p align="center">
-  <h1 align="center">Classroom scene reproduction</h2>
-  <p align="center">Reproduction of a classroom at the University of Le Havre Normandy in the form of a scene</p>
+  <h1 align="center">Classroom Scene Reproduction</h1>
+  <h3 align="center">Reproduction of a classroom at the University of Le Havre Normandy in the form of a scene</h3>
 </p>
 
 <p align="center">
@@ -8,11 +8,24 @@
   <img alt="Processing" src="https://img.shields.io/badge/-Processing-0465F7?style=flat&logo=processing&logoColor=white" />
 </p>
 
-<p align="center">
-  <img alt="Last commit" src="https://img.shields.io/github/last-commit/leag76/classroom-scene-reproduction?color=%23B5CDA3&logo=github&logoColor=white" />
-  <img alt="Commit activity" src="https://img.shields.io/github/commit-activity/m/leag76/classroom-scene-reproduction?color=%23A76844&logo=github&logoColor=white" />
-  <img alt="Repo size" src="https://img.shields.io/github/repo-size/leag76/classroom-scene-reproduction?color=%23C1AC95&logo=github&logoColor=white" />
-</p>
+<table>
+    <thead>
+        <tr>
+            <th width="250px">Year</th>
+            <th width="250px">Course</th>
+            <th width="300px">Subject</th>
+            <th width="300px">Project</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td align="center">2021-2022</td>
+        <td align="center">M1 IWOCS</td>
+        <td align="center">Infographics</td>
+        <td align="center">Final Project</td>
+        </tr>
+    </tbody>
+</table>
 
 <p align="center">
   <img alt="Preview" src="preview.png" width="1000px" />
