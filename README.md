@@ -1,6 +1,6 @@
 <p align="center">
   <h1 align="center">Classroom Scene Reproduction</h1>
-  <h3 align="center">Reproduction of a classroom at the University of Le Havre Normandy in the form of a scene</h3>
+  <h4 align="center">Reproduction of a classroom at the University of Le Havre Normandy in the form of a scene</h4>
 </p>
 
 <p align="center">
