@@ -37,14 +37,20 @@ This project consists of reproducing the A106 classroom of the UFR Sciences et T
 
 A camera will be placed in the scene and we can move around in it.
 
-## Requirements
+## Get started
+
+### Requirements
 
 We will use the environment and programming language named Processing. Processing is an environment dedicated to graphic programming, artistic creation and everything related to the visual arts. It is both a basic development environment and a programming language. The latter is based on the Java language with some extensions.
 
 Processing installs on all systems where Java can run. You can install it from the site [Processing](https://processing.org/).
 
-## Code overview
+### Run
 
-## Preview of the result
+## Objectives
 
-## User guide
+## Result
+
+### Previews
+
+### User guide
