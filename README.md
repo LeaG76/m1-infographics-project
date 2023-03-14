@@ -39,7 +39,7 @@ A camera will be placed in the scene and we can move around in it.
 
 ## Get started
 
-### Requirements
+### Requirements <img alt="Processing" src="https://img.shields.io/badge/-Processing_3.5.4-0465F7?style=flat&logo=processing&logoColor=white" />
 
 We will use the environment and programming language named Processing. Processing is an environment dedicated to graphic programming, artistic creation and everything related to the visual arts. It is both a basic development environment and a programming language. The latter is based on the Java language with some extensions.
 
